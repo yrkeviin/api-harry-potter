@@ -33,8 +33,8 @@ const createHouse = async (req, res) => {
 
 const updateHouse = async (req, res) => {
     try {
-        const { id, name, founder } = req.body;
-        const updatedHouse = await houseModel.updateHouse(id, name, founder);
+        const { name, founder } = req.body;
+        const updatedHouse = await houseModel.updateHouse(req.params.id, name, founder);
         if (!updatedHouse) {
             return res.status(404).json({ message: "Casa não encontrada." });
         }
