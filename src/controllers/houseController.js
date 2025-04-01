@@ -34,15 +34,15 @@ const createHouse = async (req, res) => {
 const updateHouse = async (req, res) => {
     try {
         const { name, founder } = req.body;
-        const updatedHouse = await houseModel.updateHouse(req.params.id, name, founder);
-        if (!updatedHouse) {
-            return res.status(404).json({ message: "Casa não encontrada." });
+        const updateHouse = await houseModel.updateHouse(req.params.id, name, founder);
+        if (!updateHouse) {
+            return res.status(404).json({ message: "House não encontrado." });
         }
-        res.json(updatedHouse);
+        res.json(updateHouse);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao atualizar casa." });
+        res.status(500).json({ message: "Erro ao atualizar House." });
     }
-}
+};
 
 const deleteHouse = async (req, res) => {
     try {
